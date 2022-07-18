@@ -5,5 +5,5 @@ export const Header = styled.h1`
         font-size: 2em;
         text-align: center;
         display: flex;
-        justify-self: flex-start;
+        justify-content: space-between;
     `

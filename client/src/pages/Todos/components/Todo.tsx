@@ -1,6 +1,8 @@
 import { Text } from "@chakra-ui/react";
+import { useContext } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { ITodo } from "../../../App";
+import { ThemeContext } from "../../../shared/contexts/ThemeContext";
 import { Button } from "./Button"
 import { Container } from "./Container"
 
@@ -21,6 +23,8 @@ const completeTodo = async (id: string) => {
 
 export default function Todo({ id, item, completed }: ITodoProps) {
 
+    const theme = useContext(ThemeContext);
+
     const queryClient = useQueryClient();
     const { mutateAsync } = useMutation(completeTodo);
 
@@ -30,7 +34,7 @@ export default function Todo({ id, item, completed }: ITodoProps) {
     }
 
     return (
-        <Container>
+        <Container theme={theme}>
             <Text>
                 {id}.
             </Text>
